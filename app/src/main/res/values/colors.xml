@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="verdeBarrafondo">#044740</color>
+    <color name="verdeBarra">#075e54</color>
+    <color name="verde">#128C7E</color>
+    <color name="verdeNotificacion">#25D366</color>
+    <color name="verdeTransparente">#dcf8c6</color>
+    <color name="azulvisto">#34b7f1</color>
+    <color name="otro">#ECE5DD</color>
+
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#000000</color>
+    <color name="gris">#9E9D9D</color>
+
+
+</resources>

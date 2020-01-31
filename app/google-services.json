@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "830808326271",
+    "firebase_url": "https://mwhatsapp-5f601.firebaseio.com",
+    "project_id": "mwhatsapp-5f601",
+    "storage_bucket": "mwhatsapp-5f601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830808326271:android:e2600082eeacd0c98d3f4a",
+        "android_client_info": {
+          "package_name": "com.zamnadev.mwhatsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830808326271-q1fban33tbjc0tfdlckjem5elsamnvdi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9DvRU7K9jJHell6ItJfZ5MMfxUaK6zIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830808326271-q1fban33tbjc0tfdlckjem5elsamnvdi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
