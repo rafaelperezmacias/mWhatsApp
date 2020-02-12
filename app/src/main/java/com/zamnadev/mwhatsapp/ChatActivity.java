@@ -74,7 +74,6 @@ public class ChatActivity extends AppCompatActivity {
 
     private ArrayList<Mensaje> mensajeArrayList;
     private RecyclerView recyclerView;
-    private AdaptadorMensajes adaptadorMensajes;
 
     private final String[] PERMISOS = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -122,6 +121,7 @@ public class ChatActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
 
         DatabaseReference usuarioRef = FirebaseDatabase.getInstance().getReference("Usuarios")
                 .child(idUsuario);
@@ -338,7 +338,7 @@ public class ChatActivity extends AppCompatActivity {
                     mensajeArrayList.add(mensaje);
                 }
 
-                adaptadorMensajes = new AdaptadorMensajes(getApplicationContext(),mensajeArrayList,img);
+                AdaptadorMensajes adaptadorMensajes = new AdaptadorMensajes(getApplicationContext(),mensajeArrayList,img);
                 recyclerView.setAdapter(adaptadorMensajes);
             }
 

@@ -3,37 +3,65 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="50dp">
+    android:gravity="end"
+    android:layout_marginStart="70dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_gravity="end"
-        android:layout_margin="5dp"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingEnd="10dp"
         android:background="@drawable/item_derecha_fondo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtMensaje"
-            android:textColor="@color/blanco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:id="@+id/imgChat"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgFoto"
             android:visibility="gone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"/>
+
+        <LinearLayout
+            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMensaje"
+                android:textColor="@color/blanco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgChat"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/txtHora"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                android:gravity="end"
+                android:textColor="@color/blanco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:visibility="gone"
-        android:id="@+id/imgFoto"
-        android:layout_width="32dp"
-        android:layout_height="32dp"/>
-
+    <TextView
+        android:id="@+id/txtVisto"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

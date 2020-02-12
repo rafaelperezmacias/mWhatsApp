@@ -3,14 +3,14 @@ package com.zamnadev.mwhatsapp.Moldes;
 public class ListaChats {
 
     private String id;
-    private Long fecha;
+    private Long hora;
 
     public ListaChats() {
     }
 
-    public ListaChats(String id, Long fecha) {
+    public ListaChats(String id, Long hora) {
         this.id = id;
-        this.fecha = fecha;
+        this.hora = hora;
     }
 
     public String getId() {
@@ -21,11 +21,11 @@ public class ListaChats {
         this.id = id;
     }
 
-    public Long getFecha() {
-        return fecha;
+    public Long getHora() {
+        return hora;
     }
 
-    public void setFecha(Long fecha) {
-        this.fecha = fecha;
+    public void setHora(Long hora) {
+        this.hora = hora;
     }
 }

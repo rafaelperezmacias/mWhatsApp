@@ -14,7 +14,12 @@ import com.bumptech.glide.Glide;
 import com.zamnadev.mwhatsapp.Moldes.Mensaje;
 import com.zamnadev.mwhatsapp.R;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+import java.util.StringTokenizer;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -46,8 +51,8 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Mensaje mensaje = mensajeArrayList.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        final Mensaje mensaje = mensajeArrayList.get(position);
 
         holder.txtMensaje.setText(mensaje.getMensaje());
 
@@ -73,6 +78,36 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
 
             }
         });
+
+        holder.txtHora.setText(MostrarFecha(mensaje.getHora()));
+
+        if (mensaje.isEnviado()) {
+            if (mensaje.isVisto()) {
+                holder.txtVisto.setText("Visto");
+            } else {
+                holder.txtVisto.setText("Enviado");
+            }
+        }
+
+        if (position == mensajeArrayList.size()-1) {
+            holder.txtVisto.setVisibility(View.VISIBLE);
+        } else {
+            holder.txtVisto.setVisibility(View.GONE);
+        }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mensaje.isEnviado()) {
+                    if (holder.txtHora.getVisibility() == View.VISIBLE) {
+                        holder.txtHora.setVisibility(View.GONE);
+                    } else {
+                        holder.txtHora.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        });
+
     }
 
     @Override
@@ -95,6 +130,8 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
         private TextView txtMensaje;
         private CircleImageView imgFoto;
         private ImageView imgMensaje;
+        private TextView txtHora;
+        private TextView txtVisto;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -102,6 +139,36 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
             txtMensaje = itemView.findViewById(R.id.txtMensaje);
             imgFoto = itemView.findViewById(R.id.imgFoto);
             imgMensaje = itemView.findViewById(R.id.imgChat);
+            txtHora = (TextView) itemView.findViewById(R.id.txtHora);
+            txtVisto = (TextView) itemView.findViewById(R.id.txtVisto);
+        }
+    }
+
+    private String MostrarFecha(Long hora)
+    {
+        Calendar calendar = Calendar.getInstance();
+        int anoA = calendar.get(Calendar.YEAR);
+        int mesA = calendar.get(Calendar.MONTH);
+        int diaA = calendar.get(Calendar.DAY_OF_MONTH);
+
+        Date d = new Date(hora);
+        SimpleDateFormat simpleDateFormat;
+
+        StringTokenizer tokenizer = new StringTokenizer(d.toString(),"-");
+        int ano = Integer.parseInt(tokenizer.nextToken());
+        int mes = Integer.parseInt(tokenizer.nextToken());
+        int dia = Integer.parseInt(tokenizer.nextToken());
+
+        if (ano == anoA && (mesA + 1) == mes && diaA == dia)
+        {
+            d = new Date(hora);
+            simpleDateFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
+            return simpleDateFormat.format(d);
+        } else
+        {
+            d = new Date(hora);
+            simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            return simpleDateFormat.format(d);
         }
     }
 }

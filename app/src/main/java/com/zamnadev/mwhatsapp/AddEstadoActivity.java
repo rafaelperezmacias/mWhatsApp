@@ -88,6 +88,8 @@ public class AddEstadoActivity extends AppCompatActivity {
                         ref.child(idEstado).setValue(hashMap);
                         progressDialog.dismiss();
 
+                        Toast.makeText(AddEstadoActivity.this, "Estado subido con exito", Toast.LENGTH_SHORT).show();
+
                         finish();
 
                     } else {

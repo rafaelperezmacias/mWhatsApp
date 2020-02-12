@@ -122,13 +122,12 @@ public class MainActivity extends AppCompatActivity {
 
         Query refListaChats = FirebaseDatabase.getInstance().getReference("ListaChats")
                 .child(firebaseUser.getUid())
-                .orderByChild("fecha");
+                .orderByChild("hora");
 
         refListaChats.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 listaChats.clear();
-                Log.e("d",dataSnapshot.toString());
                 for (DataSnapshot snapshot : dataSnapshot.getChildren())
                 {
                     ListaChats chats = snapshot.getValue(ListaChats.class);

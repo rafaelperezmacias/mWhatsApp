@@ -128,15 +128,7 @@ public class ChatsAdaptador extends RecyclerView.Adapter<ChatsAdaptador.ViewHold
                         break;
 
                     default:
-                        if (ultimo.equals("")) {
-                            if (!enviado) {
-                                holder.txtMensaje.setText("Has enviado una foto");
-                            } else {
-                                holder.txtMensaje.setText("Ha enviado una foto");
-                            }
-                        } else {
-                            holder.txtMensaje.setText(ultimo);
-                        }
+                        holder.txtMensaje.setText(ultimo);
                         break;
                 }
 
