@@ -69,8 +69,10 @@ public class Registro extends AppCompatActivity {
                                         hashMap.put("id",firebaseUser.getUid());
                                         hashMap.put("correo",txtCorreo.getText().toString().trim());
                                         hashMap.put("nombre",txtNombre.getText().toString().trim());
+                                        hashMap.put("busqueda",txtNombre.getText().toString().trim().toUpperCase());
                                         hashMap.put("hora", ServerValue.TIMESTAMP);
                                         hashMap.put("imagen", "default");
+                                        hashMap.put("conectado", false);
 
                                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios")
                                                 .child(firebaseUser.getUid());

@@ -48,6 +48,8 @@ public class Login extends AppCompatActivity {
         });
 
 
+        txtCorreo.setText("rafael@gmail.com");
+
         ((Button) findViewById(R.id.btnIngresar))
                 .setOnClickListener(new View.OnClickListener() {
                     @Override

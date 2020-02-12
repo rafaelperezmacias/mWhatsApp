@@ -4,15 +4,19 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.zamnadev.mwhatsapp.Moldes.Mensaje;
 import com.zamnadev.mwhatsapp.R;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.ViewHolder> {
 
@@ -21,7 +25,7 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
     private String img;
 
     private final int MENSAJE_DERECHA = 1;
-    private final int MENSAJE_IZQUIERDA = 1;
+    private final int MENSAJE_IZQUIERDA = 2;
 
     public AdaptadorMensajes(Context context, ArrayList<Mensaje> mensajeArrayList, String img) {
         this.context = context;
@@ -46,6 +50,29 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
         Mensaje mensaje = mensajeArrayList.get(position);
 
         holder.txtMensaje.setText(mensaje.getMensaje());
+
+        if (img.equals("default")) {
+            holder.imgFoto.setImageResource(R.drawable.ic_account_circle_black_24dp);
+        } else {
+            Glide.with(context)
+                    .load(img)
+                    .into(holder.imgFoto);
+        }
+
+        if (mensaje.getTipo() == 2) {
+            holder.imgMensaje.setVisibility(View.VISIBLE);
+            Glide.with(context)
+                    .load(mensaje.getImagen())
+                    .into(holder.imgMensaje);
+        }
+
+        holder.imgMensaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO dialogo
+
+            }
+        });
     }
 
     @Override
@@ -54,8 +81,9 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
     }
 
     @Override
-    public long getItemId(int position) {
-        if (mensajeArrayList.get(position).isEnviado()) {
+    public int getItemViewType(int position) {
+        Mensaje mensaje = mensajeArrayList.get(position);
+        if (mensaje.isEnviado()) {
             return MENSAJE_DERECHA;
         } else {
             return MENSAJE_IZQUIERDA;
@@ -65,11 +93,15 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<AdaptadorMensajes.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView txtMensaje;
+        private CircleImageView imgFoto;
+        private ImageView imgMensaje;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             txtMensaje = itemView.findViewById(R.id.txtMensaje);
+            imgFoto = itemView.findViewById(R.id.imgFoto);
+            imgMensaje = itemView.findViewById(R.id.imgChat);
         }
     }
 }

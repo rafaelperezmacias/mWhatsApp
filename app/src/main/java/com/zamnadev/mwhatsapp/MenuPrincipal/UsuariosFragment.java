@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 public class UsuariosFragment extends Fragment {
 
     private ArrayList<Usuario> usuarioArrayList;
+    private UsuariosAdaptador usuariosAdaptador;
 
     public UsuariosFragment() {
         // Required empty public constructor
@@ -43,6 +45,8 @@ public class UsuariosFragment extends Fragment {
         final RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        usuariosAdaptador = new UsuariosAdaptador(getContext(),usuarioArrayList);
+        recyclerView.setAdapter(usuariosAdaptador);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
         reference.addValueEventListener(new ValueEventListener() {
@@ -59,8 +63,7 @@ public class UsuariosFragment extends Fragment {
                     }
                 }
 
-                UsuariosAdaptador usuariosAdaptador = new UsuariosAdaptador(getContext(),usuarioArrayList);
-                recyclerView.setAdapter(usuariosAdaptador);
+                usuariosAdaptador.notifyDataSetChanged();
             }
 
             @Override

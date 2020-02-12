@@ -7,6 +7,7 @@ public class Mensaje {
     private boolean enviado;
     private boolean visto;
     private int tipo;
+    private String imagen;
 
     public Mensaje() {
     }
@@ -17,6 +18,23 @@ public class Mensaje {
         this.enviado = enviado;
         this.visto = visto;
         this.tipo = tipo;
+    }
+
+    public Mensaje(String mensaje, long hora, boolean enviado, boolean visto, int tipo, String imagen) {
+        this.mensaje = mensaje;
+        this.hora = hora;
+        this.enviado = enviado;
+        this.visto = visto;
+        this.tipo = tipo;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getMensaje() {

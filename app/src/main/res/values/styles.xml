@@ -15,4 +15,13 @@
         <item name="colorAccent">@color/verdeNotificacion</item>
     </style>
 
+    <style name="Menu" parent="Theme.AppCompat.Light">
+        <item name="android:background">@color/blanco</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

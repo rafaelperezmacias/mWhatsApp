@@ -7,16 +7,18 @@ public class Usuario {
     private String nombre;
     private String imagen;
     private long hora;
+    private boolean conectado;
 
     public Usuario() {
     }
 
-    public Usuario(String id, String correo, String nombre, String imagen, long hora) {
+    public Usuario(String id, String correo, String nombre, String imagen, long hora, boolean conectado) {
         this.id = id;
         this.correo = correo;
         this.nombre = nombre;
         this.imagen = imagen;
         this.hora = hora;
+        this.conectado = conectado;
     }
 
     public String getId() {
@@ -57,5 +59,13 @@ public class Usuario {
 
     public void setHora(long hora) {
         this.hora = hora;
+    }
+
+    public boolean isConectado() {
+        return conectado;
+    }
+
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
     }
 }

@@ -10,8 +10,9 @@
         android:layout_gravity="end"
         android:layout_margin="5dp"
         android:background="@drawable/item_derecha_fondo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
@@ -20,6 +21,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <ImageView
+            android:id="@+id/imgChat"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:visibility="gone"
+        android:id="@+id/imgFoto"
+        android:layout_width="32dp"
+        android:layout_height="32dp"/>
+
 
 </LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgHistoria"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:civ_border_color="@color/verdeNotificacion"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_image_black_24dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgHistoriaVista"
+            android:visibility="gone"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:civ_border_color="@color/gris"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_image_black_24dp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtHistoriasNombre"
+            android:textStyle="bold"
+            android:textColor="@color/negro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtHistoriasHora"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
